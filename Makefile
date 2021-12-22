@@ -45,11 +45,32 @@ bubble: 0-bubble_sort.o 0-main.o print_array.o
 insertion: insertion.o
 	$(CC) $(CDEBUG) insertion.o $(LDFLAGS) -o insertion
 
+1-main: 1-main.o
+	$(CC) $(CFLAGS) 1-main.o -o 1-main
+
+1-main.o: 1-main.c sort.h
+	$(CC) $(CFLAGS) -c 1-main.c
+
+
 select: select.o
 	$(CC) $(CDEBUG) select.o $(LDFLAGS) -o select
 
+2-main: 2-main.o
+	$(CC) $(CFLAGS) 2-main.o -o 2-main
+
+2-main.o: 2-main.c sort.h
+	$(CC) $(CFLAGS) -c 2-main.c
+
+
 quick: quick.o
 	$(CC) $(CDEBUG) quick.o $(LDFLAGS) -o quick
+
+4-main: 4-main.o
+	$(CC) $(CFLAGS) 4-main.o -o 4-main
+
+4-main.o: 4-main.c sort.h
+	$(CC) $(CFLAGS) -c 0-main.c
+
 
 
 
