@@ -8,38 +8,21 @@
  */
 void bubble_sort(int *array, size_t size)
 {
-	size_t i = 0, j = 0;
-
-	while (i < size) /* O(1) */
-	{
-		while (j < size - 1)	/* O(1) */
-		{
-			if (array[j] > array[j + 1]) /* 0(N) */
-			{
-				swap(array, j, j + 1); /* 0(1) */
-			}
-			j++;
-			print_array(array, size);
-		}
-		i++;
-		print_array(array, size);
-	}
-}
-
-/**
- * swap - Swaps two elements in an array
- * array: The array to be sorted
- * i: Index of the first element
- * j: Index of the second element
- * Return: Nothing
- * Description: This function swaps two elements in an array
- */
-void swap(int *array, size_t i, size_t j)
-{
+	size_t i, j;
 	int temp;
 
-	temp = array[i];
-	array[i] = array[j];
-	array[j] = temp;
-}
+	for (i = 0; i < size - 1; i++)
+	{
+		for (j = 0; j < i + 1; j++)
+		{
+			if (array[j] > array[j + 1])
+			{
+				temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
+				print_array(array, size);
+			}
+		}
 
+	}
+}
