@@ -1,7 +1,7 @@
 # -*- Makefile -*-
 
 
-all: bubble insertion select quick print_list print_array 0-main 1-main 2-main 3-main
+all: bubble insertion select quick shell cocktail counting print_list print_array 0-main 1-main 2-main 3-main
 
 
 
@@ -36,6 +36,16 @@ print_arrray.o: print_list.c
 3-quick_sort.o: 3-quick_sort.c sort.h
 	$(CC) $(CFLAGS) -c 3-quick_sort.c
 
+100-shell_sort.o: 100-shell_sort.c sort.h
+	$(CC) $(CFLAGS) -c 100-shell_sort.c
+
+101-cocktail_sort.o: 101-cocktail_sort.c sort.h
+	$(CC) $(CFLAGS) -c 101-cocktail_sort.c
+
+102-counting_sort.o: 102-counting_sort.c sort.h
+	$(CC) $(CFLAGS) -c 102-counting_sort.c
+
+# Main (Given)
 0-main.o: 0-main.c sort.h
 	$(CC) $(CFLAGS) -c 0-main.c
 
@@ -51,19 +61,22 @@ print_arrray.o: print_list.c
 4-main.o: 4-main.c sort.h
 	$(CC) $(CFLAGS) -c 4-main.c
 
+100-main.o: 100-main.c sort.h
+	$(CC) $(CFLAGS) -c 100-main.c
+
+101-main.o: 101-main.c sort.h
+	$(CC) $(CFLAGS) -c 101-main.c
+
+102-main.o: 102-main.c sort.h
+	$(CC) $(CFLAGS) -c 102-main.c
+
+# Print Functions (Given)
 print_list: print_list.o
 	$(CC) $(CFLAGS) print_list.o
 print_array: print_array.o
 	$(CC) $(CFLAGS) print_array.o
 
-0-main: 0-main.o
-	$(CC) $(CFLAGS) 0-main.o -o 0-main
-1-main: 1-main.o
-	$(CC) $(CFLAGS) 1-main.o -o 1-main
-2-main: 2-main.o
-	$(CC) $(CFLAGS) 2-main.o -o 2-main
-3-main: 4-main.o
-	$(CC) $(CFLAGS) 3-main.o -o 3-main
+
 
 # Final Compilation 
 bubble: 0-bubble_sort.o 0-main.o print_array.o
@@ -73,8 +86,15 @@ insertion: 1-insertion_sort_list.o 1-main.o print_list.o
 select: 2-main.o print_array.o 2-selection_sort.o
 	$(CC) $(CFLAGS) 2-main.o print_array.o 2-selection_sort.o -o select
 quick: 3-main.o print_array.o 3-quick_sort.o
-	$(CC) $(CFLAGS) 3-main.o print_array.o 3-quick_sort.o -o quick 
+	$(CC) $(CFLAGS) 3-main.o print_array.o 3-quick_sort.o -o quick
+shell: 100-main.o print_array.o 100-shell_sort.o
+	$(CC) $(CFLAGS) 100-main.o print_array.o 100-shell_sort.o -o shell
+cocktail: 101-main.o print_list.o 101-cocktail_sort.o
+	$(CC) $(CFLAGS) 101-main.o print_list.o 101-cocktail_sort.o -o cocktail
+counting: 102-main.o print_array.o 102-counting_sort.o
+	$(CC) $(CFLAGS) 102-main.o print_array.o 102-counting_sort.o -o counting
+
 
 .phony: clean
 clean:
-	rm -f *.o bubble insertion select quick print_list print_array
+	rm -f *.o bubble insertion select quick cocktail shell counting print_list print_array
