@@ -43,6 +43,7 @@ void insertion_sort_list(listint_t **list)
 				prev->prev = next;
 				next->next = prev;
 				prev = next->prev;
+				print_list(*list);
 			}
 			next->prev = prev;
 			if (prev)
