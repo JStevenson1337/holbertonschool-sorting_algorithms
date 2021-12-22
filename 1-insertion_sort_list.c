@@ -2,7 +2,8 @@
 /**
  * insertion_sort_list - Sorts a linked list of integers in ascending order
  * @list: The list to be sorted
- * Return: Nothing 
+ * Return: Nothing
+ * Description: This function sorts a linked list of integers in ascending order
  */
 void insertion_sort_list(listint_t **list)
 {

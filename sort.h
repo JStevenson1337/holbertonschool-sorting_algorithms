@@ -35,5 +35,6 @@ void quick_sort(int *array, size_t size);
  */
 void swap(int *array, size_t i, size_t j);
 void swap_list(const listint_t *a, const listint_t *b);
+void quick_sort_rec(int *array, int start, int end);
 
 #endif
