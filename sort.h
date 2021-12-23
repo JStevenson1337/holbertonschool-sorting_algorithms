@@ -38,7 +38,8 @@ void counting_sort(int *array, size_t size);
 /**
  * custom 
  */
-void swap(int *array, size_t i, size_t j);
+void swap(int *a, int *b);
+void quick_sort_rec(int *array, int start, int end);
 void swap_list(const listint_t *a, const listint_t *b);
 void quick_sort_rec(int *array, int start, int end);
 
