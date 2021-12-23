@@ -15,7 +15,13 @@ void quick_sort(int *array, size_t size)
 
 	quick_sort_rec(array, 0, size - 1);
 }
-
+/**
+ * quick_sort_rec - Sorts a list of integers in ascending
+ * 
+ * @array: pointer to array
+ * @start: start
+ * @end: end
+ */
 void quick_sort_rec(int *array, int start, int end)
 {
 	int pivot, i, j;
@@ -45,12 +51,21 @@ void quick_sort_rec(int *array, int start, int end)
 	swap(&array[i], &array[end]);
 	print_array(array, end + 1);
 	swap(&array[i], &array[end]);
+	print_array(array, end + 1);
 	quick_sort_rec(array, start, i - 1);
 	swap(&array[i], &array[end]);
+	print_array(array, end + 1);
 	quick_sort_rec(array, i + 1, end);
 	swap(&array[i], &array[end]);
+	print_array(array, end + 1);
 }
 
+/**
+ * @swap - swap vars
+ * 
+ * @a: index pointer
+ * @b: index pointer 
+ */
 void swap(int *a, int *b)
 {
 	int temp;
