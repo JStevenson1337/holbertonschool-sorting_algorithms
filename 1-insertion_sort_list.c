@@ -21,21 +21,16 @@ void insertion_sort_list(listint_t **list)
 
 	while (next)
 	{
-		printf("1\n");
 		if (current->n > next->n)
 		{
-			printf("2\n");
 			if (current->prev)
 			{
-				printf("3\n");
 				current->prev->next = next;
 				next->prev = current->prev;
 				print_list(*list);
-				
 			}
 			else
 			{
-				printf("4\n");
 				*list = next;
 				next->prev = NULL;
 				print_list(*list);
@@ -44,7 +39,6 @@ void insertion_sort_list(listint_t **list)
 			print_list(*list);
 			while (prev && prev->n > next->n)
 			{
-				printf("5\n");
 				next->prev = prev->prev;
 				prev->next = next->next;
 				if (next->next)
@@ -54,7 +48,6 @@ void insertion_sort_list(listint_t **list)
 				prev = next->prev;
 				print_list(*list);
 			}
-			printf("6\n");
 			next->prev = prev;
 			print_list(*list);
 			if (prev)
@@ -67,7 +60,6 @@ void insertion_sort_list(listint_t **list)
 		}
 		else
 		{
-			printf("7\n");
 			current = next;
 			next = current->next;
 			print_list(*list);
