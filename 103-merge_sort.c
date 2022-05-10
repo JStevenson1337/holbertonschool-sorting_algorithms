@@ -1,59 +1,80 @@
 #include "sort.h"
-
-void merge(int *array, int start, int mid, int end, int *temp)
+/**
+ * merge - merge two sorted arrays
+ * @array first array
+ * @temp temporary array
+ * @ size size of array
+ */
+void merge(int *array, int *temp, size_t size)
 {
-    int i = start;
-    int j = mid + 1;
-    int k = 0;
-    while (i <= mid && j <= end)
+    size_t i = 0;
+    size_t j = 0;
+    size_t k = 0;
+    while (i < size / 2 && j < size - size / 2)
     {
-        if (array[i] <= array[j])
+        if (array[i] < array[size / 2 + j])
         {
             temp[k] = array[i];
+            printf("Merging...\n");
+            printf("[left]: ");
+            print_array(array, size);
+	        printf("[right]: ");
+	        print_array(array + size / 2, size - size / 2);
             i++;
+
         }
         else
         {
-            temp[k] = array[j];
+            temp[k] = array[size / 2 + j];
             j++;
         }
         k++;
     }
-    while (i <= mid)
+    while (i < size / 2)
     {
         temp[k] = array[i];
         i++;
         k++;
     }
-    while (j <= end)
+    while (j < size - size / 2)
     {
-        temp[k] = array[j];
+        temp[k] = array[size / 2 + j];
         j++;
         k++;
     }
-    for (i = start; i <= end; i++)
+    for (i = 0; i < size; i++)
     {
-        array[i] = temp[i - start];
+        array[i] = temp[i];
     }
+    printf("[Done]: ");
+    print_array(array, size);
 }
 
+/**
+ * merge - merge two sorted arrays
+ * @array first array
+ * @ size size of array
+ */
+void sort_helper(int *array, int *temp, size_t size)
+{
+    if (size < 2)
+        return;
+    size_t mid = size / 2;
+    sort_helper(array, temp, mid);
+    sort_helper(array + mid, temp + mid, size - mid);
+    merge(array, temp, size);
+}
+
+/**
+ * merge - merge two sorted arrays
+ * @array first array
+ * @ size size of array
+ */
 void merge_sort(int *array, size_t size)
 {
     int *temp = malloc(sizeof(int) * size);
-    int start, end;
-    if (size < 2)
-    {
+    if (temp == NULL)
         return;
-    }
-    start = 0;
-    end = size - 1;
-    while (start < end)
-    {
-        merge(array, start, (start + end) / 2, end, temp);
-        start = (start + end) / 2 + 1;
-        end = end - 1;
-    }
+    sort_helper(array, temp, size);
     free(temp);
 }
-
-
