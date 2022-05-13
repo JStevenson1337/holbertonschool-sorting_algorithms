@@ -1,6 +1,11 @@
 #include "sort.h"
 
-
+/**
+ * merge - merge two sorted arrays
+ * @array: first array
+ * @temp: temporary array
+ * @size: size of array
+ */
 void swap(int *a, int *b)
 {
 	int temp = *a;
@@ -8,6 +13,12 @@ void swap(int *a, int *b)
 	*b = temp;
 }
 
+/**
+ * merge - merge two sorted arrays
+ * @array: first array
+ * @temp: temporary array
+ * @size: size of array
+ */
 void sort(int *a, int n)
 {
 	int i, j;
@@ -27,6 +38,12 @@ void sort(int *a, int n)
 	}
 }
 
+/**
+ * merge - merge two sorted arrays
+ * @array: first array
+ * @temp: temporary array
+ * @size: size of array
+ */
 void heapify(int *array, size_t size, size_t i)
 {
 	size_t largest = i;
@@ -44,6 +61,11 @@ void heapify(int *array, size_t size, size_t i)
 	}
 }
 
+/**
+ * heap_sort - sort an array using heap sort
+ * @array: array to sort
+ * @size: size of array
+ */
 void heap_sort(int *array, size_t size)
 {
 	int i;
