@@ -1,0 +1,31 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/jeremy/Projects/Holberton/sorting_algorithms'
+gcc -Wall -Wextra -Werror -pedantic -c 0-bubble_sort.c
+gcc -Wall -Wextra -Werror -pedantic -c 0-main.c
+gcc -Wall -Wextra -Werror -pedantic 0-bubble_sort.o 0-main.o print_array.o -o bubble
+gcc -Wall -Wextra -Werror -pedantic -c 1-insertion_sort_list.c
+gcc -Wall -Wextra -Werror -pedantic -c 1-main.c
+gcc  1-insertion_sort_list.o 1-main.o print_list.o -o insertion
+gcc -Wall -Wextra -Werror -pedantic -c 2-main.c
+gcc -Wall -Wextra -Werror -pedantic -c 2-selection_sort.c
+gcc -Wall -Wextra -Werror -pedantic 2-main.o print_array.o 2-selection_sort.o -o select
+gcc -Wall -Wextra -Werror -pedantic -c 3-main.c
+gcc -Wall -Wextra -Werror -pedantic -c 3-quick_sort.c
+gcc -Wall -Wextra -Werror -pedantic 3-main.o print_array.o 3-quick_sort.o -o quick
+gcc -Wall -Wextra -Werror -pedantic -c 100-main.c
+gcc -Wall -Wextra -Werror -pedantic -c 100-shell_sort.c
+gcc -Wall -Wextra -Werror -pedantic 100-main.o print_array.o 100-shell_sort.o -o shell
+gcc -Wall -Wextra -Werror -pedantic -c 101-main.c
+gcc -Wall -Wextra -Werror -pedantic -c 102-main.c
+gcc -Wall -Wextra -Werror -pedantic -c 102-counting_sort.c
+gcc -Wall -Wextra -Werror -pedantic 102-main.o print_array.o 102-counting_sort.o -o counting
+gcc -Wall -Wextra -Werror -pedantic print_list.o
+gcc -Wall -Wextra -Werror -pedantic print_array.o
+gcc   0-main.o   -o 0-main
+gcc   1-main.o   -o 1-main
+gcc   2-main.o   -o 2-main
+gcc   3-main.o   -o 3-main
+make: Leaving directory '/home/jeremy/Projects/Holberton/sorting_algorithms'
+ 
+make: *** No rule to make target '101-cocktail_sort.c', needed by '101-cocktail_sort.o'.
+

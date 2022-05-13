@@ -25,7 +25,6 @@ void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
-void sort_helper(int *array, int *temp, size_t size);
 
 
 void cocktail_sort_list(listint_t **list);
@@ -37,14 +36,5 @@ void swap(int *a, int *b);
 void quick_sort_rec(int *array, int start, int end);
 void swap_list(const listint_t *a, const listint_t *b);
 void quick_sort_rec(int *array, int start, int end);
-
-void merge_sort(int *array, size_t size);
-void sort_helper(int *array, int *temp, size_t size);
-void merge(int *array, int *temp, size_t size);
-
-void heap_sort(int *array, size_t size);
-void heapify(int *array, size_t size, size_t i);
-void heap_sort_rec(int *array, size_t size);
-
 
 #endif
