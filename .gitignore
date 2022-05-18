@@ -54,3 +54,4 @@ dkms.conf
 *-main.c
 insertion
 quick
+.vscode-ctags

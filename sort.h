@@ -39,8 +39,8 @@ void swap_list(const listint_t *a, const listint_t *b);
 void quick_sort_rec(int *array, int start, int end);
 
 void merge_sort(int *array, size_t size);
-void sort_helper(int *array, int *temp, size_t size);
-void merge(int *array, int *temp, size_t size);
+void merge_sort_helper(int *array, int *temp, size_t size);
+void merger(int *l, size_t size_l, int *r, size_t size_r, int *tmp);
 
 void heap_sort(int *array, size_t size);
 void heapify(int *array, size_t size, size_t i);

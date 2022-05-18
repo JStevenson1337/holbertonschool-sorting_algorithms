@@ -1,81 +1,68 @@
 #include "sort.h"
-/**
- * merge - merge two sorted arrays
- * @array: first array
- * @temp: temporary array
- * @size: size of array
- */
-void merge(int *array, int *temp, size_t size)
-{
-	size_t i = 0, j = 0, k = 0;
-
-	while (i < size / 2 && j < size - size / 2)
-	{
-		if (array[i] < array[size / 2 + j])
-		{
-			temp[k] = array[i];
-			printf("Merging...\n");
-			printf("[left]: ");
-			print_array(array, size);
-			printf("[right]: ");
-			print_array(array + size / 2, size - size / 2);
-			i++;
-		}
-		else
-		{
-			temp[k] = array[size / 2 + j];
-			j++;
-		}
-		k++;
-	}
-	while (i < size / 2)
-	{
-		temp[k] = array[i];
-		i++;
-		k++;
-	}
-	while (j < size - size / 2)
-	{
-		temp[k] = array[size / 2 + j];
-		j++;
-		k++;
-	}
-	for (i = 0; i < size; i++)
-	{
-		array[i] = temp[i];
-	}
-	printf("[Done]: ");
-	print_array(array, size);
-}
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
- * sort_helper - merge two sorted arrays
- * @array: first array
- * @size: size of array
- * @temp: temporary array
- */
-void sort_helper(int *array, int *temp, size_t size)
-{
-	if (size < 2)
-		return;
-	size_t mid = size / 2;
-
-	sort_helper(array, temp, mid);
-	sort_helper(array + mid, temp + mid, size - mid);
-	merge(array, temp, size);
-}
-
-/**
- * merge_sort - merge two sorted arrays
- * @array: first array
+ * merge_sort - implementation of merge sort algorithm
+ * @array: array of integers
  * @size: size of array
  */
 void merge_sort(int *array, size_t size)
 {
 	int *temp = malloc(sizeof(int) * size);
-
 	if (temp == NULL)
 		return;
-	sort_helper(array, temp, size);
+	merge_sort_helper(array, temp, size);
 	free(temp);
+}
+
+/**
+ * merge_sort_helper - helper function for merge sort
+ * @array: array of integers
+ * @temp: temporary array
+ * @size: size of array
+ */
+void merge_sort_helper(int *array, int *temp, size_t size)
+{
+	if (size < 2)
+		return;
+	size_t mid = size / 2;
+	merge_sort_helper(array, temp, mid);
+	merge_sort_helper(array + mid, temp + mid, size - mid);
+	merger(array, mid, array + mid, size - mid, temp);
+}
+
+/**
+ * merger - merge two sorted arrays
+ * @l: left array
+ * @size_l: size of left array
+ * @r: right array
+ * @size_r: size of right array
+ * @tmp: temporary array
+ */
+void merger(int *l, size_t size_l, int *r, size_t size_r, int *tmp)
+{
+	size_t i = 0, j = 0, k = 0;
+
+	for (i = 0; i < size_l; i++)
+		tmp[i] = l[i];
+
+	printf("Merging...\n");
+	printf("[left]: ");
+	print_array(l, size_l);
+	printf("[right]: ");
+	print_array(r, size_r);
+
+	for (i = 0; i < size_l && j < size_r; l[k++] = tmp[i], i++)
+		for (; j < size_r && r[j] < tmp[i]; j++)
+			l[k++] = r[j];
+
+	for (; i < size_l; i++)
+		l[k++] = tmp[i];
+
+	for (; j < size_r; j++)
+		l[k++] = r[j];
+
+	printf("[Done]: ");
+	print_array(l, size_l + size_r);
 }
