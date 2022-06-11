@@ -50,10 +50,9 @@ void heap_sort(int *array, size_t size);
 void heapify(int *array, size_t size, size_t i);
 void heap_sort_rec(int *array, size_t size);
 
-void radix_sort(int *array, size_t size);
-void into_array(int *array, size_t size, int **arrays, int *arr_len);
-int arr_high(int *array, size_t size);
-void build_arr(int *arr_len, int **arrays);
-void init_arr_len(int *arr_len);
+int maxIntInArray(int arr[], int n);
+int init_arr_len(int *arr_len);
+void radix_sort(int arr[], int n);
+
 
 #endif
