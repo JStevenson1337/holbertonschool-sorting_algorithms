@@ -55,4 +55,6 @@ int init_arr_len(int *arr_len);
 void radix_sort(int arr[], int n);
 
 
+int linear_search(int *array, size_t size, int value);
+
 #endif
